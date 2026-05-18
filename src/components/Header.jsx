@@ -16,23 +16,29 @@ export default function Header({ language, onLanguageChange, darkMode, onDarkMod
   const languageKeys = Object.keys(languages)
 
   return (
-    <header className="flex items-start justify-between mb-6">
+    <header className="flex items-start justify-between mb-8">
       <div>
         <h1 className="text-4xl font-black leading-tight tracking-tight text-gray-900 dark:text-white uppercase">
-          NATO<br />Alphabet
+          {languages[language].title.split(' ')[0]}<br />{languages[language].title.split(' ').slice(1).join(' ')}
         </h1>
-        <h2 className="text-4xl font-black leading-tight tracking-tight text-brand-blue uppercase">
-          {languages[language]}
+        <h2 className="text-4xl font-black leading-tight tracking-tight text-blue-600 dark:text-blue-400 uppercase">
+          {languages[language].label}
         </h2>
       </div>
 
-      <div className="flex items-center gap-2 mt-1">
-        <div className="flex items-center rounded-full border border-gray-300 dark:border-gray-600 overflow-hidden">
+      <div className="flex items-center gap-2 mt-2">
+        <div
+          role="group"
+          aria-label="Language selection"
+          className="flex items-center rounded-full border border-gray-300 dark:border-gray-600 overflow-hidden"
+        >
           {languageKeys.map((lang) => (
             <button
               key={lang}
               onClick={() => onLanguageChange(lang)}
-              className={`px-3 py-1 text-sm font-semibold transition-colors ${
+              aria-pressed={language === lang}
+              aria-label={`Switch to ${languages[lang].label}`}
+              className={`px-4 min-h-[44px] text-sm font-semibold transition-colors focus:outline-none ${
                 language === lang
                   ? 'bg-gray-200 dark:bg-gray-600 text-gray-900 dark:text-white'
                   : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'
@@ -45,8 +51,8 @@ export default function Header({ language, onLanguageChange, darkMode, onDarkMod
 
         <button
           onClick={onDarkModeToggle}
-          className="p-1 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-          aria-label="Toggle dark mode"
+          aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+          className="min-h-[44px] min-w-[44px] flex items-center justify-center rounded-full text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors focus:outline-none"
         >
           {darkMode ? <SunIcon /> : <MoonIcon />}
         </button>

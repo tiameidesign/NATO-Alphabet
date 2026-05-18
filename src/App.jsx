@@ -31,7 +31,7 @@ export default function App() {
           An app designed to help users pronounce letters in a different language
         </p>
 
-        <AlphabetGrid letters={letters} />
+        <AlphabetGrid letters={letters} language={language} />
       </div>
     </div>
   )
