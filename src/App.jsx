@@ -19,7 +19,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors duration-200">
-      <div className="max-w-md mx-auto px-4 py-6">
+      <div className="max-w-md mx-auto px-4 py-6 md:max-w-2xl lg:max-w-5xl">
         <Header
           language={language}
           onLanguageChange={setLanguage}
