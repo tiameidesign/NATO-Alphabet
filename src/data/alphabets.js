@@ -1,6 +1,6 @@
 export const languages = {
-  EN: { label: 'English', title: 'NATO Alphabet' },
-  NL: { label: 'Dutch', title: 'Telephone Alphabet' },
+  EN: { label: 'English', title: 'NATO Alphabet', description: 'Website designed to help users clearly pronounce and understand letters using the English NATO phonetic alphabet.' },
+  NL: { label: 'Dutch', title: 'Telephone Alphabet', description: 'Website designed to help users clearly pronounce and understand letters using the Dutch Telephone alphabet.' },
 }
 
 export const alphabetData = {

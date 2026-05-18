@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import AlphabetGrid from './components/AlphabetGrid'
-import { alphabetData } from './data/alphabets'
+import { alphabetData, languages } from './data/alphabets'
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(false)
@@ -28,7 +28,7 @@ export default function App() {
         />
 
         <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">
-          An app designed to help users pronounce letters in a different language
+          {languages[language].description}
         </p>
 
         <AlphabetGrid letters={letters} language={language} />
